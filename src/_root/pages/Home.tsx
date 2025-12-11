@@ -1,8 +1,9 @@
-
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <section className="p-6">
+      <h1 className="text-2xl font-semibold">Home</h1>
+    </section>
+  );
+};
 
-export default Home
+export default Home;
