@@ -1,14 +1,12 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './globals.css';
 import SigninForm from './_auth/forms/SigninForm';
-import { Home } from './_root/pages';
+import { Home, Profile } from './_root/pages';
 import SignupForm from './_auth/forms/SignupForm';
 import AuthLayout from './_auth/AuthLayout';
 import RootLayout from './_root/RootLayout';
 
 import { Toaster } from "@/components/ui/toaster"
-
-
 
 const App = () => {
   return (
@@ -19,15 +17,14 @@ const App = () => {
           <Route path="/sign-in" element={<SigninForm />} />
           <Route path="/sign-up" element={<SignupForm />} />
         </Route>
-        
+
         {/* private routes */}
         <Route element={<RootLayout />}>
           <Route index element={<Home />} />
-
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
-        
-
-      </Routes>  
+      </Routes>
       <Toaster />
     </main>
   )
